@@ -1,0 +1,21 @@
+{
+	"name": "Fuck Off Cheaters",
+	"description": "Detects & warns about cheaters in the current lobby.",
+	"author": "Livaco",
+	"contact": "",
+	"version": "0.1.0",
+	"priority": 10,
+	"color": "255 255 0",
+	"image": "mod.png",
+
+	"hooks": [
+		{
+			"hook_id": "lib/setups/gamesetup",
+			"script_path": "lua/setup.lua"
+		}
+		{
+			"hook_id": "lib/network/base/networkpeer",
+			"script_path": "lua/setup.lua"
+		}
+	]
+}
