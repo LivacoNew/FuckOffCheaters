@@ -18,8 +18,8 @@ function FOffCheaters:CheckPeer(peer)
 		end
 	else
 		FOffCheaters:SendLocally("Cleared " .. peer:name(), false)
-		FOffCheaters:MarkChecked(peer:account_id())
 	end
+	FOffCheaters:MarkChecked(peer:account_id())
 end
 
 -- Tests the peer for any infractions. Returns true or false depending on if they have been flagged.
