@@ -15,6 +15,7 @@ FOffCheaters.HookRoutes = {
 FOffCheaters.Cleared = FOffCheaters.Cleared or {}
 FOffCheaters.DetectionCache = FOffCheaters.DetectionCache or {}
 FOffCheaters.PathToMod = ModPath
+FOffCheaters.PathToDetections = ModPath .. "detections/"
 function FOffCheaters:SendLocally(message)
 	managers.chat:_receive_message(ChatManager.GAME, "Fuck Off Cheaters", message, tweak_data.system_chat_color)
 end
@@ -34,6 +35,9 @@ function FOffCheaters:RegisterDetection(steamid, message)
 		FOffCheaters.DetectionCache[steamid] = {}
 	end
 	table.insert(FOffCheaters.DetectionCache[steamid], message)
+
+	-- Write to detections 
+	io.save_as_json(FOffCheaters.DetectionCache[steamid], FOffCheaters.PathToDetections .. steamid .. ".json")
 end
 function FOffCheaters:CheckDetection(steamid)
 	return FOffCheaters.DetectionCache[steamid]
