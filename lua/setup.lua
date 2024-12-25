@@ -1,5 +1,6 @@
 FOffCheaters = FOffCheaters or {}
 FOffCheaters.Settings = FOffCheaters.Settings or {
+	SilentMode = true,
 	Detections = {
 		CheaterTag = true,
 		Skills = true,
@@ -17,7 +18,8 @@ FOffCheaters.Cleared = FOffCheaters.Cleared or {}
 FOffCheaters.DetectionCache = FOffCheaters.DetectionCache or {}
 FOffCheaters.PathToMod = ModPath
 FOffCheaters.PathToDetections = ModPath .. "detections/"
-function FOffCheaters:SendLocally(message)
+function FOffCheaters:SendLocally(message, bypassSilent)
+	if FOffCheaters.Settings.SilentMode and not bypassSilent then return end
 	managers.chat:_receive_message(ChatManager.GAME, "Fuck Off Cheaters", message, tweak_data.system_chat_color)
 end
 

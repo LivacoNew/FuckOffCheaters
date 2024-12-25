@@ -6,17 +6,17 @@ FOffCheaters:Require("lua/tests/skills")
 function FOffCheaters:CheckPeer(peer)
 	if not peer:synched() or not peer:skills() then return end
 
-	FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")")
+	FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")", false)
 	local isCheater = FOffCheaters:TestPeer(peer)
 
 	if isCheater then
 		local detections = FOffCheaters:CheckDetection(peer:account_id())
-		FOffCheaters:SendLocally(peer:name() .. " has been identified as a cheater: ")
+		FOffCheaters:SendLocally(peer:name() .. " has been identified as a cheater: ", true)
 		for _,v in pairs(detections) do
-			FOffCheaters:SendLocally(" - " .. v)
+			FOffCheaters:SendLocally(" - " .. v, true)
 		end
 	else
-		FOffCheaters:SendLocally("Cleared " .. peer:name())
+		FOffCheaters:SendLocally("Cleared " .. peer:name(), false)
 		FOffCheaters:ClearPlayer(peer:account_id())
 	end
 end
