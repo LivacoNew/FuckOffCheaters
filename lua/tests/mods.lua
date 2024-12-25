@@ -59,12 +59,13 @@ function FOffCheaters:CheckMods(peer)
 	local mods = peer:synced_mods()
 	if #mods <= 0 then return false end
 
+	local isCheater = false
 	for _,v in pairs(mods) do
 		if FOffCheaters.DangerousModIDs[string.lower(v.id)] or FOffCheaters.DangerousModNames[string.lower(v.name)] then
-			FOffCheaters:RegisterDetection(peer:account_id(), "Found malicious mod " .. v.name .. " (" .. v.id .. ")")
-			return true
+			FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, "Found malicious mod: " .. v.name .. " (" .. v.id .. ")"))
+			isCheater = true
 		end
 	end
 
-	return false
+	return isCheater
 end

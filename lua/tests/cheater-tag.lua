@@ -1,6 +1,6 @@
 function FOffCheaters:CheckCheaterTag(peer)
 	if peer:is_cheater() then
-		FOffCheaters:RegisterDetection(peer:account_id(), "Marked as cheater by game.")
+		FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, "Player marked as cheater by PAYDAY 2."))
 		return true
 	end
 	return false

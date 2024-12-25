@@ -5,10 +5,10 @@ function FOffCheaters:CheckSkills(peer)
 	local total_skill_points = 0
 	for _,v in pairs(values) do
 		total_skill_points = total_skill_points + tonumber(v)
-	end 
+	end
 
 	if total_skill_points > 120 then
-		FOffCheaters:RegisterDetection(peer:account_id(), "User has over 120 skill points allocated.")
+		FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, "User has over 120 skill points allocated."))
 		return true
 	end
 	return false

@@ -14,8 +14,8 @@ FOffCheaters.HookRoutes = {
 	["lib/managers/hudmanagerpd2"] = "lua/test",
 }
 -- SteamID -> Message of Detection
-FOffCheaters.Cleared = FOffCheaters.Cleared or {}
-FOffCheaters.DetectionCache = FOffCheaters.DetectionCache or {}
+FOffCheaters.Checked = FOffCheaters.Checked or {}
+FOffCheaters.FlaggedCheaters = FOffCheaters.FlaggedCheaters or {}
 FOffCheaters.PathToMod = ModPath
 FOffCheaters.PathToDetections = ModPath .. "detections/"
 function FOffCheaters:SendLocally(message, bypassSilent)
@@ -27,25 +27,11 @@ function FOffCheaters:Require(path)
 	dofile(FOffCheaters.PathToMod .. path .. ".lua")
 end
 
-function FOffCheaters:ClearPlayer(steamid)
-	FOffCheaters.Cleared[steamid] = true
+function FOffCheaters:MarkChecked(steamid)
+	FOffCheaters.Checked[steamid] = true
 end
-function FOffCheaters:IsClear(steamid)
-	return FOffCheaters.Cleared[steamid] or false
-end
-function FOffCheaters:RegisterDetection(steamid, message)
-	if not FOffCheaters.DetectionCache[steamid] then
-		FOffCheaters.DetectionCache[steamid] = {}
-	end
-	table.insert(FOffCheaters.DetectionCache[steamid], message)
-
-	-- Write to detections 
-	if FOffCheaters.Settings.LogDetections then
-		io.save_as_json(FOffCheaters.DetectionCache[steamid], FOffCheaters.PathToDetections .. steamid .. ".json")
-	end
-end
-function FOffCheaters:CheckDetection(steamid)
-	return FOffCheaters.DetectionCache[steamid]
+function FOffCheaters:HasBeenChecked(steamid)
+	return FOffCheaters.Checked[steamid] or false
 end
 
 -- Hook Routing

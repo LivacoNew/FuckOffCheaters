@@ -1,3 +1,4 @@
+FOffCheaters:Require("lua/detections")
 FOffCheaters:Require("lua/tests/cheater-tag")
 FOffCheaters:Require("lua/tests/mods")
 FOffCheaters:Require("lua/tests/p3dhack")
@@ -10,20 +11,22 @@ function FOffCheaters:CheckPeer(peer)
 	local isCheater = FOffCheaters:TestPeer(peer)
 
 	if isCheater then
-		local detections = FOffCheaters:CheckDetection(peer:account_id())
-		FOffCheaters:SendLocally(peer:name() .. " has been identified as a cheater: ", true)
-		for _,v in pairs(detections) do
-			FOffCheaters:SendLocally(" - " .. v, true)
+		local infractionData = FOffCheaters:CheckCheaterFlag(peer:account_id())
+		FOffCheaters:SendLocally(peer:name() .. " has been identified as a cheater with " .. #infractionData.infractions .. " infractions.", true)
+		for _,v in pairs(infractionData.infractions) do
+			FOffCheaters:SendLocally(" " .. v.description, true)
 		end
 	else
 		FOffCheaters:SendLocally("Cleared " .. peer:name(), false)
-		FOffCheaters:ClearPlayer(peer:account_id())
+		FOffCheaters:MarkChecked(peer:account_id())
 	end
 end
 
+-- Tests the peer for any infractions. Returns true or false depending on if they have been flagged.
+-- NOTE: This will not re-test any known cheaters.
 function FOffCheaters:TestPeer(peer)
-	local detection = FOffCheaters:CheckDetection(peer:account_id())
-	if detection then return true end
+	local hasBeenFlagged = FOffCheaters:CheckCheaterFlag(peer:account_id())
+	if hasBeenFlagged then return true end
 
 	local isCheater = false
 
@@ -43,6 +46,7 @@ function FOffCheaters:TestPeer(peer)
 	return isCheater
 end
 
+-- Triggers the checking process on a given peer
 function FOffCheaters:TriggerChecks(peer)
 	local us = managers.network:session():peer(NetworkHelper:LocalPeerID())
 	-- We're not loaded in yet either, meaning info on other peers isn't available
@@ -51,21 +55,23 @@ function FOffCheaters:TriggerChecks(peer)
 	-- Re-Check all other players in-case we're joining a lobby
 	for _,v in pairs(NetworkHelper:GetPeers()) do
 		if v:synched() then
-			if not FOffCheaters:IsClear(v:account_id()) and not FOffCheaters:CheckDetection(v:account_id()) then
+			if not FOffCheaters:HasBeenChecked(v:account_id()) then
 				FOffCheaters:CheckPeer(v)
 			end
 		end
 	end
 
-	if FOffCheaters:IsClear(peer:account_id()) or FOffCheaters:CheckDetection(peer:account_id()) then return end
+	if FOffCheaters:HasBeenChecked(peer:account_id()) then return end
 	FOffCheaters:CheckPeer(peer)
 end
 
+-- Hooks to trigger checks
 if RequiredScript == "lib/managers/hudmanagerpd2" then
 	log("[FOffCheaters] Setting up hud manager hooks")
 	-- Credit to Blacklist for this method of getting the peer
 	Hooks:PostHook(HUDManager, "set_teammate_name", "foffcheater_peer_check", function(_, peerID, _)
-		if peerID == NetworkHelper:LocalPeerID() then return end
+		-- Comment this line if you wanna test on yourself
+		-- if peerID == NetworkHelper:LocalPeerID() then return end
 		local peer = managers.network:session():peer(peerID)
 		if not peer then return end
 
