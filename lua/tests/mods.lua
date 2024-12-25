@@ -3,6 +3,8 @@ FOffCheaters.DangerousModIDs = {
 	-- Carry Stacker
 	["carrystackerreloaded"] = true,
 	["carry stacker live and reloaded"] = true,
+	["carry stacker 2.0"] = true,
+	["carry stacker"] = true,
 	-- Infinite Ammo
 	["infiniteammo"] = true,
 	-- DLC Unlocker: https://github.com/pd2-stuff/DLC-Unlocker-PD2/tree/master
@@ -20,11 +22,16 @@ FOffCheaters.DangerousModIDs = {
 	-- https://modworkshop.net/mod/19579
 	-- i understand it's technically not by default, but can be used as one 
 	["berserker live matters"] = true,
+	-- Misc 
+	["inf pager"] = true,
+	["infpagers"] = true,
 }
 FOffCheaters.DangerousModNames = {
 	-- Carry Stacker
 	["carry stacker reloaded"] = true,
 	["carry stacker: live and reloaded"] = true,
+	["carry stacker2.0"] = true,
+	["carry stacker 2.0"] = true,
 	-- Infinite Ammo
 	["infinite ammo"] = true,
 	-- DLC Unlocker: https://github.com/pd2-stuff/DLC-Unlocker-PD2/tree/master
@@ -42,6 +49,9 @@ FOffCheaters.DangerousModNames = {
 	-- https://modworkshop.net/mod/19579
 	-- i understand it's technically not by default, but can be used as one 
 	["berserker live matters"] = true,
+	-- Misc 
+	["inf pagers"] = true,
+	["inf pagers & answer time"] = true,
 }
 
 function FOffCheaters:CheckMods(peer)

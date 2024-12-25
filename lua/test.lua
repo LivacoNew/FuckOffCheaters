@@ -43,21 +43,38 @@ function FOffCheaters:TestPeer(peer)
 	return isCheater
 end
 
-if RequiredScript == "lib/network/base/networkpeer" then 
-	Hooks:PostHook(BaseNetworkSession, "on_peer_sync_complete", "foffcheater_peer_check", function(_, peer, peerID)
-		-- We're not loaded in yet either, meaning info on other peers isn't available
-		if not managers.network:session():peer(NetworkHelper:LocalPeerID()):synched() then return end 
+function FOffCheaters:TriggerChecks(peer)
+	local us = managers.network:session():peer(NetworkHelper:LocalPeerID())
+	-- We're not loaded in yet either, meaning info on other peers isn't available
+	if not us:synched() and not NetworkHelper:IsHost() then return end
 
-		-- Re-Check all other players in-case we're joining a lobby
-		for _,v in pairs(NetworkHelper:GetPeers()) do
-			if v:synched() then
-				if not FOffCheaters:IsClear(v:account_id()) and not FOffCheaters:CheckDetection(v:account_id()) then
-					FOffCheaters:CheckPeer(v)
-				end
+	-- Re-Check all other players in-case we're joining a lobby
+	for _,v in pairs(NetworkHelper:GetPeers()) do
+		if v:synched() then
+			if not FOffCheaters:IsClear(v:account_id()) and not FOffCheaters:CheckDetection(v:account_id()) then
+				FOffCheaters:CheckPeer(v)
 			end
 		end
+	end
 
-		if FOffCheaters:IsClear(peer:account_id()) or FOffCheaters:CheckDetection(peer:account_id()) then return end
-		FOffCheaters:CheckPeer(peer)
+	if FOffCheaters:IsClear(peer:account_id()) or FOffCheaters:CheckDetection(peer:account_id()) then return end
+	FOffCheaters:CheckPeer(peer)
+end
+
+if RequiredScript == "lib/managers/hudmanagerpd2" then
+	log("[FOffCheaters] Setting up hud manager hooks")
+	-- Credit to Blacklist for this method of getting the peer
+	Hooks:PostHook(HUDManager, "set_teammate_name", "foffcheater_peer_check", function(_, peerID, _)
+		if peerID == NetworkHelper:LocalPeerID() then return end 
+		local peer = managers.network:session():peer(peerID)
+		if not peer then return end
+
+		FOffCheaters:TriggerChecks(peer)
+	end)
+end
+if RequiredScript == "lib/network/base/networkpeer" then 
+	log("[FOffCheaters] Setting up network peer hooks")
+	Hooks:PostHook(BaseNetworkSession, "on_peer_sync_complete", "foffcheater_peer_check", function(_, peer, _)
+		FOffCheaters:TriggerChecks(peer)
 	end)
 end

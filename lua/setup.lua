@@ -7,6 +7,10 @@ FOffCheaters.Settings = FOffCheaters.Settings or {
 		ModList = true
 	}
 }
+FOffCheaters.HookRoutes = {
+	["lib/network/base/networkpeer"] = "lua/test",
+	["lib/managers/hudmanagerpd2"] = "lua/test",
+}
 -- SteamID -> Message of Detection
 FOffCheaters.Cleared = FOffCheaters.Cleared or {}
 FOffCheaters.DetectionCache = FOffCheaters.DetectionCache or {}
@@ -36,9 +40,8 @@ function FOffCheaters:CheckDetection(steamid)
 end
 
 -- Hook Routing
-if RequiredScript == "lib/setups/gamesetup" then
-	FOffCheaters:Require("lua/test")
-end
-if RequiredScript == "lib/network/base/networkpeer" then
-	FOffCheaters:Require("lua/test")
+if RequiredScript then
+	if not FOffCheaters.HookRoutes[RequiredScript] then return end
+	log("[FOffCheaters] Routing hook " .. RequiredScript .. " -> " .. FOffCheaters.HookRoutes[RequiredScript])
+	FOffCheaters:Require(FOffCheaters.HookRoutes[RequiredScript])
 end
