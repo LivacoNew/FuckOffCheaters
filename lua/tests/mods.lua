@@ -13,6 +13,8 @@ FOffCheaters.DangerousModIDs = {
 	["unlock_all_dlcs"] = true,
 	-- Cook Faster: https://github.com/DrNewbie/CookFaster
 	["cookfaster"] = true,
+	-- https://modworkshop.net/mod/24425
+	["print faster"] = true,
 	-- Unlimited Pagers: https://modworkshop.net/mod/41337
 	["unlimited pagers"] = true,
 	-- https://modworkshop.net/mod/24657
@@ -22,6 +24,8 @@ FOffCheaters.DangerousModIDs = {
 	-- https://modworkshop.net/mod/19579
 	-- i understand it's technically not by default, but can be used as one 
 	["berserker live matters"] = true,
+	-- LockSmasher
+	["locksmasher"] = true,
 	-- Misc 
 	["inf pager"] = true,
 	["infpagers"] = true,
@@ -40,6 +44,8 @@ FOffCheaters.DangerousModNames = {
 	["downloadable content"] = true,
 	-- Cook Faster: https://github.com/DrNewbie/CookFaster
 	["cook faster"] = true,
+	-- https://modworkshop.net/mod/24425
+	["print faster"] = true,
 	-- Unlimited Pagers: https://modworkshop.net/mod/41337
 	["unlimited pagers"] = true,
 	-- https://modworkshop.net/mod/24657
@@ -49,6 +55,8 @@ FOffCheaters.DangerousModNames = {
 	-- https://modworkshop.net/mod/19579
 	-- i understand it's technically not by default, but can be used as one 
 	["berserker live matters"] = true,
+	-- LockSmasher
+	["lock smasher"] = true,
 	-- Misc 
 	["inf pagers"] = true,
 	["inf pagers & answer time"] = true,
