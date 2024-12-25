@@ -5,7 +5,8 @@ FOffCheaters.Settings = FOffCheaters.Settings or {
 		Skills = true,
 		P3DHack = true,
 		ModList = true
-	}
+	},
+	LogDetections = true
 }
 FOffCheaters.HookRoutes = {
 	["lib/network/base/networkpeer"] = "lua/test",
@@ -37,7 +38,9 @@ function FOffCheaters:RegisterDetection(steamid, message)
 	table.insert(FOffCheaters.DetectionCache[steamid], message)
 
 	-- Write to detections 
-	io.save_as_json(FOffCheaters.DetectionCache[steamid], FOffCheaters.PathToDetections .. steamid .. ".json")
+	if FOffCheaters.Settings.LogDetections then
+		io.save_as_json(FOffCheaters.DetectionCache[steamid], FOffCheaters.PathToDetections .. steamid .. ".json")
+	end
 end
 function FOffCheaters:CheckDetection(steamid)
 	return FOffCheaters.DetectionCache[steamid]
