@@ -6,7 +6,6 @@ FOffCheaters.HookRoutes = {
 	["lib/managers/menumanager"] = "lua/menus",
 	["lib/managers/localizationmanager"] = "lua/localization"
 }
--- SteamID -> Message of Detection
 FOffCheaters.Checked = FOffCheaters.Checked or {}
 FOffCheaters.FlaggedCheaters = FOffCheaters.FlaggedCheaters or {}
 FOffCheaters.PathToMod = ModPath
