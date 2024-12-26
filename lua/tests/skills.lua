@@ -8,7 +8,7 @@ function FOffCheaters:CheckSkills(peer)
 	end
 
 	if total_skill_points > 120 then
-		FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, "User has over 120 skill points allocated."))
+		FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, managers.localization:text("foffcheaters_infraction_skills")))
 		return true
 	end
 	return false

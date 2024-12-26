@@ -7,17 +7,28 @@ FOffCheaters:Require("lua/tests/skills")
 function FOffCheaters:CheckPeer(peer)
 	if not peer:synched() or not peer:skills() then return end
 
-	FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")", false)
+	-- FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")", false)
+	FOffCheaters:SendLocally(managers.localization:text("foffcheaters_checking_peer", {
+		USERNAME = peer:name(),
+		ACCOUNTID = peer:account_id()
+	}))
 	local isCheater = FOffCheaters:TestPeer(peer)
 
 	if isCheater then
 		local infractionData = FOffCheaters:CheckCheaterFlag(peer:account_id())
-		FOffCheaters:SendLocally(peer:name() .. " has been identified as a cheater with " .. #infractionData.infractions .. " infractions.", true)
+		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected", {
+			USERNAME = peer:name(),
+			NUMINFRACTIONS = #infractionData.infractions
+		}))
 		for _,v in pairs(infractionData.infractions) do
-			FOffCheaters:SendLocally(" " .. v.description, true)
+			FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected_infraction", {
+				INFRACTION = v.description
+			}))
 		end
 	else
-		FOffCheaters:SendLocally("Cleared " .. peer:name(), false)
+		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_cleared", {
+			USERNAME = peer:name()
+		}))
 	end
 	FOffCheaters:MarkChecked(peer:account_id())
 end

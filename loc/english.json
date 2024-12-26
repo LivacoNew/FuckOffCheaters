@@ -1,6 +1,16 @@
 {
-	"foffcheaters_mod_title": "Fuck Off Cheaters"
-	"foffcheaters_mod_desc": "Detects & warns about cheaters in the current lobby."
+	"foffcheaters_mod_title": "Fuck Off Cheaters",
+	"foffcheaters_mod_desc": "Detects & warns about cheaters in the current lobby.",
+
+	"foffcheaters_checking_peer": "Checking Peer $USERNAME ($ACCOUNTID)...",
+	"foffcheaters_detected": "$USERNAME has been identified as a cheater with $NUMINFRACTIONS infractions.",
+	"foffcheaters_detected_infraction": " $INFRACTION",
+	"foffcheaters_cleared": "Cleared $USERNAME.",
+
+	"foffcheaters_infraction_skills": "User has more than 120 skill points allocated.",
+	"foffcheaters_infraction_p3dhack": "Users name contains \"pd3hack\", indicating usage of P3DHack.",
+	"foffcheaters_infraction_mod": "Detected malicious mod: $MODNAME ($MODID)",
+	"foffcheaters_infraction_cheatertag": "User is marked as cheater by PAYDAY 2",
 
 	"foffcheaters_settings_silent_title": "Silent Mode",
 	"foffcheaters_settings_silent_desc": "Will not display anything in chat except on detection of cheaters. Disable for more \"verbose\" messages."

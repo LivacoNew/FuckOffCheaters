@@ -5,7 +5,7 @@ FOffCheaters.DangerousMods = {
 	["berserker live matters"] = true,
 	["freeflightcamera"] = true,
 
-	-- "Depends on who you ask"
+	-- "Cheaty but depends on who you ask"
 	["carrystackerreloaded"] = true,
 	["carry stacker reloaded"] = true,
 	["carry stacker live and reloaded"] = true,
@@ -51,7 +51,10 @@ function FOffCheaters:CheckMods(peer)
 	local isCheater = false
 	for _,v in pairs(mods) do
 		if FOffCheaters.DangerousMods[string.lower(v.id)] or FOffCheaters.DangerousMods[string.lower(v.name)] then
-			FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, "Found malicious mod: " .. v.name .. " (" .. v.id .. ")"))
+			FOffCheaters:RegisterInfraction(peer, FOffCheaters:Infraction(1, managers.localization:text("foffcheaters_infraction_mod", {
+				MODNAME = v.name,
+				MODID = v.id
+			})))
 			isCheater = true
 		end
 	end
