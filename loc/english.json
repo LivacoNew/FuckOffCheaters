@@ -14,4 +14,6 @@
 
 	"foffcheaters_settings_silent_title": "Silent Mode",
 	"foffcheaters_settings_silent_desc": "Will not display anything in chat except on detection of cheaters. Disable for more \"verbose\" messages."
+	"foffcheaters_settings_logdetections_title": "Log Detections",
+	"foffcheaters_settings_logdetections_desc": "Will log all infractions as well as the players full list of mods to \"FuckOffCheaters/detections\"."
 }

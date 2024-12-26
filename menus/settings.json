@@ -14,6 +14,15 @@
 			"value": "SilentMode",
 			"default_value": true,
 			"callback": "FOffCheaters_SilentModeSetting"
+		},
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_logdetections",
+			"title": "foffcheaters_settings_logdetections_title",
+			"description": "foffcheaters_settings_logdetections_desc",
+			"value": "LogDetections",
+			"default_value": true,
+			"callback": "FOffCheaters_LogDetectionsSetting"
 		}
 	]
 }
