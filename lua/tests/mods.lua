@@ -52,6 +52,8 @@ FOffCheaters.DangerousMods = {
 	["removable mask"] = true,
 	["payday2-god-master"] = true, -- found in the wild, i believe from this https://github.com/pinchedloaf/payday2-god/tree/master
 	["god"] = true,
+	["invincible sentries"] = true,
+	["infinite Sentry ammo"] = true,
 }
 
 function FOffCheaters:CheckMods(peer)
