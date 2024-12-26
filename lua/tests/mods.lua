@@ -12,8 +12,14 @@ FOffCheaters.DangerousMods = {
 	["carry stacker2.0"] = true,
 	["carry stacker 2.0"] = true,
 	["carry stacker"] = true,
+	["equipment stacker"] = true,
 	["lock smasher"] = true,
 	["locksmasher"] = true,
+	["silentassassin"] = true,
+	["silent assassin"] = true,
+	["drag not bag"] = true,
+	["get spree from bags"] = true,
+	["bags in spree"] = true,
 	-- DLC Unlocker
 	["unlock_only_heists"] = true,
 	["unlock_only_characters"] = true,
@@ -41,6 +47,11 @@ FOffCheaters.DangerousMods = {
 	["lowcostskill"] = true,
 	["xp increaser"] = true,
 	["xp increaser (on mission end) - gab"] = true,
+	["run faster (legit version) - gab"] = true, -- despite it's name, it's source code indicates it is not in-fact legit
+	["run 2x faster - gab"] = true,
+	["removable mask"] = true,
+	["payday2-god-master"] = true, -- found in the wild, i believe from this https://github.com/pinchedloaf/payday2-god/tree/master
+	["god"] = true,
 }
 
 function FOffCheaters:CheckMods(peer)
