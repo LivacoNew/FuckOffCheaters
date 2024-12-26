@@ -1,0 +1,7 @@
+{
+	"foffcheaters_mod_title": "Fuck Off Cheaters"
+	"foffcheaters_mod_desc": "Detects & warns about cheaters in the current lobby."
+
+	"foffcheaters_settings_silent_title": "Silent Mode",
+	"foffcheaters_settings_silent_desc": "Will not display anything in chat except on detection of cheaters. Disable for more \"verbose\" messages."
+}

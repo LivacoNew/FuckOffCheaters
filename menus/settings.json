@@ -1,0 +1,19 @@
+{
+	"menu_id": "foffcheaters_settings",
+	"parent_menu_id": "blt_options",
+	"title": "foffcheaters_mod_title",
+	"description": "foffcheaters_mod_desc",
+	"back_callback": "FOffCheaters_SaveSettings",
+
+	"items": [
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_silent_mode",
+			"title": "foffcheaters_settings_silent_title",
+			"description": "foffcheaters_settings_silent_desc",
+			"value": "SilentMode",
+			"default_value": true,
+			"callback": "FOffCheaters_SilentModeSetting"
+		}
+	]
+}
