@@ -19,11 +19,11 @@ function FOffCheaters:CheckPeer(peer)
 		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected", {
 			USERNAME = peer:name(),
 			NUMINFRACTIONS = #infractionData.infractions
-		}))
+		}), true)
 		for _,v in pairs(infractionData.infractions) do
 			FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected_infraction", {
 				INFRACTION = v.description
-			}))
+			}), true)
 		end
 	else
 		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_cleared", {
