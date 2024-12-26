@@ -31,13 +31,13 @@ end
 function FOffCheaters:DefaultSettings()
 	return {
 		SilentMode = true,
+		LogDetections = true,
 		Detections = {
 			CheaterTag = true,
 			Skills = true,
 			P3DHack = true,
 			ModList = true
-		},
-		LogDetections = true
+		}
 	}
 end	
 function FOffCheaters:SaveSettings()
