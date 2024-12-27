@@ -1,0 +1,45 @@
+{
+	"menu_id": "foffcheaters_detections",
+	"parent_menu_id": "foffcheaters_settings",
+	"title": "foffcheaters_settings_detection_title",
+	"description": "foffcheaters_settings_detection_desc",
+
+	"items": [
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_cheatertag",
+			"title": "foffcheaters_settings_detection_cheatertag_title",
+			"description": "foffcheaters_settings_detection_cheatertag_desc",
+			"value": "CheaterTag",
+			"default_value": true,
+			"callback": "FOffCheaters_DetectionSettingSet"
+		},
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_skills",
+			"title": "foffcheaters_settings_detection_skills_title",
+			"description": "foffcheaters_settings_detection_skills_desc",
+			"value": "Skills",
+			"default_value": true,
+			"callback": "FOffCheaters_DetectionSettingSet"
+		},
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_p3dhack",
+			"title": "foffcheaters_settings_detection_p3dhack_title",
+			"description": "foffcheaters_settings_detection_p3dhack_desc",
+			"value": "P3DHack",
+			"default_value": true,
+			"callback": "FOffCheaters_DetectionSettingSet"
+		},
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_modlist",
+			"title": "foffcheaters_settings_detection_modlist_title",
+			"description": "foffcheaters_settings_detection_modlist_desc",
+			"value": "ModList",
+			"default_value": true,
+			"callback": "FOffCheaters_DetectionSettingSet"
+		}
+	]
+}

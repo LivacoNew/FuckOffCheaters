@@ -13,7 +13,18 @@
 	"foffcheaters_infraction_cheatertag": "User is marked as cheater by PAYDAY 2",
 
 	"foffcheaters_settings_silent_title": "Silent Mode",
-	"foffcheaters_settings_silent_desc": "Will not display anything in chat except on detection of cheaters. Disable for more \"verbose\" messages."
+	"foffcheaters_settings_silent_desc": "Will not display anything in chat except on detection of cheaters. Disable for more \"verbose\" messages.",
 	"foffcheaters_settings_logdetections_title": "Log Detections",
-	"foffcheaters_settings_logdetections_desc": "Will log all infractions as well as the players full list of mods to \"FuckOffCheaters/detections\"."
+	"foffcheaters_settings_logdetections_desc": "Will log all infractions as well as the players full list of mods to \"FuckOffCheaters/detections\".",
+	"foffcheaters_settings_detection_title": "Detection Settings",
+	"foffcheaters_settings_detection_desc": "Adjust settings for detections.",
+
+	"foffcheaters_settings_detection_cheatertag_title": "Cheater Tag",
+	"foffcheaters_settings_detection_cheatertag_desc": "Detects if the user has been marked as a CHEATER by PAYDAY 2.",
+	"foffcheaters_settings_detection_skills_title": "Too Many Skills",
+	"foffcheaters_settings_detection_skills_desc": "Detects if the user has more than 120 skill points allocated",
+	"foffcheaters_settings_detection_p3dhack_title": "[P3DHack] in Username",
+	"foffcheaters_settings_detection_p3dhack_desc": "Detects if the user has [P3DHack] in their username.",
+	"foffcheaters_settings_detection_modlist_title": "Registers Malicious Mod",
+	"foffcheaters_settings_detection_modlist_desc": "Detects if the user registers a mod marked as \"malicious\". This is the most reliable, but still easily bypassable if the user knows how to spoof mod information to the host."
 }
