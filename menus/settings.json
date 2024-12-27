@@ -23,6 +23,15 @@
 			"value": "LogDetections",
 			"default_value": true,
 			"callback": "FOffCheaters_LogDetectionsSetting"
+		},
+		{
+			"type": "toggle",
+			"id": "foffcheaters_toggle_markcheaters",
+			"title": "foffcheaters_settings_markcheaters_title",
+			"description": "foffcheaters_settings_markcheaters_desc",
+			"value": "MarkCheaters",
+			"default_value": false,
+			"callback": "FOffCheaters_MarkCheatersSetting"
 		}
 	]
 }

@@ -31,6 +31,7 @@ function FOffCheaters:DefaultSettings()
 	return {
 		SilentMode = true,
 		LogDetections = true,
+		MarkCheaters = false,
 		Detections = {
 			CheaterTag = true,
 			Skills = true,
