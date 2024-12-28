@@ -33,8 +33,11 @@ FOffCheaters.DangerousMods = {
 	["rngmodifier"] = true,
 	["infinite ammo"] = true,
 	["infiniteammo"] = true,
+	["cookfaster-master"] = true,
 	["cookfaster"] = true,
 	["cook faster"] = true,
+	["supercooker"] = true, -- Auto-cooker https://mod.3dmgame.com/mod/155455
+	["weber's super cooker"] = true, -- Above
 	["printfaster"] = true,
 	["print faster"] = true,
 	["unlimited pagers"] = true,
@@ -52,8 +55,11 @@ FOffCheaters.DangerousMods = {
 	["removable mask"] = true,
 	["payday2-god-master"] = true, -- found in the wild, i believe from this https://github.com/pinchedloaf/payday2-god/tree/master
 	["god"] = true,
+	["experience on kill"] = true,
 	["invincible sentries"] = true,
 	["infinite Sentry ammo"] = true,
+	["mysentry"] = true, -- Found in the wild, no online info on it. From what I can tell, infinite turrets
+	["mysentry2"] = true, -- See above
 }
 
 function FOffCheaters:CheckMods(peer)
