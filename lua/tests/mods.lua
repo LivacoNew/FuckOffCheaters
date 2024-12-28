@@ -4,7 +4,6 @@ FOffCheaters.DangerousMods = {
 	-- "Can be used normally but still needs to be counted"
 	["berserker live matters"] = true,
 	["freeflightcamera"] = true,
-	["customfov"] = true,
 
 	-- "Cheaty but depends on who you ask"
 	["carrystackerreloaded"] = true,
