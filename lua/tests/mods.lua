@@ -60,6 +60,9 @@ FOffCheaters.DangerousMods = {
 	["experience on kill"] = true,
 	["invincible sentries"] = true,
 	["infinite Sentry ammo"] = true,
+	["pirate perfection reborn trainer! free edition"] = true,
+	["pirate perfection reborn trainer! pro edition"] = true,
+	["pirate perfection reborn trainer! v.i.p. edition"] = true,
 	["mysentry"] = true, -- Found in the wild, no online info on it. From what I can tell, infinite turrets
 	["mysentry2"] = true, -- See above
 }
