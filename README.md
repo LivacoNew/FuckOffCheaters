@@ -4,6 +4,7 @@ Fuck Off Cheaters is a very primative """anti-cheat""" for PAYDAY 2, aiming to m
 If you join a lobby and FOC determines that lobby contains a cheater, it will send an alert to the chat about it along with what they have been flagged with.
 
 ![The mod successfully flagging me as having CarryStacker installed.](https://i.imgur.com/nrVzuEK.png)
+![A public lobby, with the mod finding someone with RNG Modifier and Cook Faster installed.](https://i.imgur.com/2v1w3qQ.png)
 
 The mod can also log detection data to a json file, and mark the cheater visually in-game if you choose to enable it in the mod options.
 
