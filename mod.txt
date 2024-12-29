@@ -2,11 +2,18 @@
 	"name": "Fuck Off Cheaters",
 	"description": "Detects & warns about cheaters in the current lobby.",
 	"author": "Livaco",
-	"contact": "",
+	"contact": "livaco@livaco.dev",
 	"version": "0.1.0",
 	"priority": 10,
 	"color": "255 255 0",
 	"image": "mod.png",
+
+	"updates": [{
+		"identifier": "foffcheaters_updates",
+		"host": {
+			"meta": "https://api.livaco.dev/payday_mod_updates.json"
+		}
+	}],
 
 	"hooks": [
 		{
