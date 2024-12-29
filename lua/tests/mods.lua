@@ -13,10 +13,10 @@ function FOffCheaters:CheckMod(modID, modName)
 		if v.enabled then 
 			if v.func(lowerID, lowerName) then
 				return k
-			end 
-		end 
-	end 
-end 
+			end
+		end
+	end
+end
 
 -- The actual check 
 function FOffCheaters:CheckMods(peer)
