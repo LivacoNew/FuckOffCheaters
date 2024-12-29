@@ -58,12 +58,6 @@ FOffCheaters:RegisterModDetection("Free Flight Camera", function(modID, modName)
 	return BasicContains(modID, modName, "freeflightcamera") or BasicContains(modID, modName, "free flight camera")
 end)
 
--- NOT AN ACTUAL CHEAT I HAVE IT HERE FOR TESTING REASONS IGNORE ME PLEASE
-FOffCheaters:RegisterModDetection("CustomFOV", function(modID, modName)
-	-- ["freeflightcamera"] = true,
-	return BasicContains(modID, modName, "customfov") 
-end)
-
 --
 -- "Cheaty but depends on who you ask"
 --
