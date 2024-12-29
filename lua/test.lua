@@ -88,7 +88,7 @@ end
 
 -- Hooks to trigger checks
 if RequiredScript == "lib/managers/hudmanagerpd2" then
-	log("[FOffCheaters] Setting up hud manager hooks")
+	FOffCheaters:Logger("Setting up hud manager hooks")
 	-- Credit to Blacklist for this method of getting the peer
 	Hooks:PostHook(HUDManager, "set_teammate_name", "foffcheater_peer_check", function(_, peerID, _)
 		DelayedCalls:Add("foffcheater-checkpeer-" .. peerID, 3, function()
@@ -100,7 +100,7 @@ if RequiredScript == "lib/managers/hudmanagerpd2" then
 	end)
 end
 if RequiredScript == "lib/network/base/networkpeer" then
-	log("[FOffCheaters] Setting up network peer hooks")
+	FOffCheaters:Logger("Setting up network peer hooks")
 	Hooks:PostHook(BaseNetworkSession, "on_peer_sync_complete", "foffcheater_peer_check", function(_, peer, _)
 		FOffCheaters:TriggerChecks(peer)
 	end)

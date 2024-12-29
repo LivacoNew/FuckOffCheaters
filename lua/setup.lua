@@ -11,13 +11,19 @@ FOffCheaters.FlaggedCheaters = FOffCheaters.FlaggedCheaters or {}
 FOffCheaters.PathToMod = ModPath
 FOffCheaters.PathToSave = SavePath
 FOffCheaters.PathToDetections = ModPath .. "detections/"
-function FOffCheaters:SendLocally(message, bypassSilent)
-	if FOffCheaters.Settings.SilentMode and not bypassSilent then return end
-	managers.chat:_receive_message(ChatManager.GAME, "Fuck Off Cheaters", message, tweak_data.system_chat_color)
-end
 
 function FOffCheaters:Require(path)
 	dofile(FOffCheaters.PathToMod .. path .. ".lua")
+end
+
+function FOffCheaters:Logger(message, ...)
+	-- ignore any deprecated warnings you get from your ide here, blt is still below lua 5.1 
+	log(string.format("[FOffCheaters] " .. message, unpack({...})))
+end
+
+function FOffCheaters:SendLocally(message, bypassSilent)
+	if FOffCheaters.Settings.SilentMode and not bypassSilent then return end
+	managers.chat:_receive_message(ChatManager.GAME, "Fuck Off Cheaters", message, tweak_data.system_chat_color)
 end
 
 function FOffCheaters:MarkChecked(steamid)
@@ -55,6 +61,6 @@ FOffCheaters:LoadSettings()
 -- Hook Routing
 if RequiredScript then
 	if not FOffCheaters.HookRoutes[RequiredScript] then return end
-	log("[FOffCheaters] Routing hook " .. RequiredScript .. " -> " .. FOffCheaters.HookRoutes[RequiredScript])
+	FOffCheaters:Logger("Routing hook %s -> %s", RequiredScript, FOffCheaters.HookRoutes[RequiredScript])
 	FOffCheaters:Require(FOffCheaters.HookRoutes[RequiredScript])
 end
