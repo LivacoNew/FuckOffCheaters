@@ -212,3 +212,24 @@ FOffCheaters:RegisterModDetection("Utimate Trainer", function(modID, modName)
 	-- ["ultimate trainer 6"] = true,
 	return BasicContains(modID, modName, "ultimate trainer") or BasicContains(modID, modName, "ultimatetrainer")
 end)
+FOffCheaters:RegisterModDetection("Auto Marker", function(modID, modName)
+	-- https://www.nexusmods.com/payday2/mods/499
+	return BasicContains(modID, modName, "auto marker")
+end)
+FOffCheaters:RegisterModDetection("Funny Skill Points", function(modID, modName)
+	-- https://www.nexusmods.com/payday2/mods/506/?tab=description
+	return BasicContains(modID, modName, "funny skill points")
+end)
+FOffCheaters:RegisterModDetection("Remove Timers", function(modID, modName)
+	-- https://www.nexusmods.com/payday2/mods/336
+	return BasicContains(modID, modName, "remove timers")
+end)
+FOffCheaters:RegisterModDetection("Continental Coins", function(modID, modName)
+	-- found in the wild, traced to
+	-- https://github.com/theo-ardouin/ContinentalCoins
+	return BasicContains(modID, modName, "continentalcoins")
+end)
+FOffCheaters:RegisterModDetection("Cable Ties and Hostages", function(modID, modName)
+	-- https://modworkshop.net/mod/31101
+	return BasicContains(modID, modName, "cableties-and-hostages") or BasicContains(modID, modName, "Cable Ties and Hostages")
+end)
