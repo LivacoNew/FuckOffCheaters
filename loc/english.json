@@ -6,6 +6,7 @@
 	"foffcheaters_detected": "$USERNAME has been identified as a cheater with $NUMINFRACTIONS infractions.",
 	"foffcheaters_detected_infraction": " $INFRACTION",
 	"foffcheaters_cleared": "Cleared $USERNAME.",
+	"foffcheaters_checktime": "Player check ran in $TIME seconds.",
 
 	"foffcheaters_infraction_skills": "User has more than 120 skill points allocated.",
 	"foffcheaters_infraction_p3dhack": "Users name contains \"pd3hack\", indicating usage of P3DHack.",

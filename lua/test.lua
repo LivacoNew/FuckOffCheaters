@@ -8,6 +8,7 @@ function FOffCheaters:CheckPeer(peer)
 	if not peer:synched() or not peer:skills() then return end
 
 	-- FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")", false)
+	local startingTime = os.clock()
 	FOffCheaters:SendLocally(managers.localization:text("foffcheaters_checking_peer", {
 		USERNAME = peer:name(),
 		ACCOUNTID = peer:account_id()
@@ -34,6 +35,11 @@ function FOffCheaters:CheckPeer(peer)
 			USERNAME = peer:name()
 		}))
 	end
+
+	local elapsedTime = os.clock() - startingTime
+	FOffCheaters:SendLocally(managers.localization:text("foffcheaters_checktime", {
+		TIME = string.format("%.2f", elapsedTime)
+	}))
 	FOffCheaters:MarkChecked(peer:account_id())
 end
 
