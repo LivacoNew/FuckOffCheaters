@@ -23,6 +23,9 @@ function FOffCheaters:RegisterInfraction(peer, infraction)
 
 	-- Write to detections 
 	if FOffCheaters.Settings.LogDetections then
+		if not file.DirectoryExists(FOffCheaters.PathToDetections) then
+			file.CreateDirectory(FOffCheaters.PathToDetections)
+		end
 		io.save_as_json(FOffCheaters.FlaggedCheaters[steamid], FOffCheaters.PathToDetections .. steamid .. ".json")
 	end
 end
