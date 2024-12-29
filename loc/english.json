@@ -21,6 +21,8 @@
 	"foffcheaters_settings_markcheaters_desc": "Marks any cheaters in your HUD. **This is only visual for you specifically, and does nothing for auto-kicking them!**",
 	"foffcheaters_settings_detection_title": "Detection Settings",
 	"foffcheaters_settings_detection_desc": "Adjust settings for detections.",
+	"foffcheaters_settings_mods_title": "Mod Filters",
+	"foffcheaters_settings_mods_desc": "Enable/disable individual mod detections.",
 
 	"foffcheaters_settings_detection_cheatertag_title": "Cheater Tag",
 	"foffcheaters_settings_detection_cheatertag_desc": "Detects if the user has been marked as a CHEATER by PAYDAY 2.",

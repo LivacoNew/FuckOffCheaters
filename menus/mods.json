@@ -1,0 +1,8 @@
+{
+	"menu_id": "foffcheaters_mods",
+	"parent_menu_id": "foffcheaters_settings",
+	"title": "foffcheaters_settings_mods_title",
+	"description": "foffcheaters_settings_mods_desc",
+
+	"items": []
+}

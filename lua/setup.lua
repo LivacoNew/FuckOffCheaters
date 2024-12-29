@@ -37,7 +37,8 @@ function FOffCheaters:DefaultSettings()
 			Skills = true,
 			P3DHack = true,
 			ModList = true
-		}
+		},
+		DisabledModFilters = {}
 	}
 end	
 function FOffCheaters:SaveSettings()
@@ -45,6 +46,8 @@ function FOffCheaters:SaveSettings()
 end
 function FOffCheaters:LoadSettings()
 	FOffCheaters.Settings = io.load_as_json(FOffCheaters.PathToSave .. "foffcheaters_settings.json") or FOffCheaters:DefaultSettings()
+	-- Account for old settings files
+	FOffCheaters.Settings.DisabledModFilters = FOffCheaters.Settings.DisabledModFilters or {} 
 end
 
 FOffCheaters:LoadSettings()

@@ -1,7 +1,7 @@
 FOffCheaters.ModDetections = {}
 function FOffCheaters:RegisterModDetection(modName, modDetectionFunc)
 	FOffCheaters.ModDetections[modName] = {
-		enabled = true,
+		enabled = not FOffCheaters.Settings.DisabledModFilters[modName],
 		func = modDetectionFunc
 	}
 end
