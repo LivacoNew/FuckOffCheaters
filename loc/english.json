@@ -9,7 +9,7 @@
 
 	"foffcheaters_infraction_skills": "User has more than 120 skill points allocated.",
 	"foffcheaters_infraction_p3dhack": "Users name contains \"pd3hack\", indicating usage of P3DHack.",
-	"foffcheaters_infraction_mod": "Detected malicious mod: $MODNAME ($MODID)",
+	"foffcheaters_infraction_mod": "Detected malicious mod: $MODNAME",
 	"foffcheaters_infraction_cheatertag": "User is marked as cheater by PAYDAY 2",
 
 	"foffcheaters_settings_silent_title": "Silent Mode",
