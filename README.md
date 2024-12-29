@@ -18,7 +18,7 @@ The mod will currently alert you to any player that;
 - Is flagged as a cheater in-game.
 - Has a username that contains [P3DHack], indicating usage of the same-named hack mod.
 - Has more than 120 skill points allocated.
-- Has a mod installed that matches the filter list in the top of [this file](https://github.com/LivacoNew/FuckOffCheaters/blob/master/lua/tests/mods.lua). 
+- Has a mod installed that matches any mod in a list, customisable in the mod's options.
 
 ## What is defined as a "cheat"?
 For the purposes of this mod, a "cheat" is defined as anything that;
