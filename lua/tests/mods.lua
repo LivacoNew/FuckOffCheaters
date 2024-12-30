@@ -112,6 +112,7 @@ FOffCheaters:RegisterModDetection("DLC Unlocker", function(modID, modName)
 		or BasicContains(modID, modName, "unlock_all_dlcs")
 		or BasicContains(modID, modName, "downloadable content")
 		or BasicContains(modID, modName, "character")
+		or BasicContains(modID, modName, "hello world")
 end)
 
 --
