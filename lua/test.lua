@@ -7,39 +7,38 @@ FOffCheaters:Require("lua/tests/skills")
 function FOffCheaters:CheckPeer(peer)
 	if not peer:synched() or not peer:skills() then return end
 
-	-- FOffCheaters:SendLocally("Checking Peer " .. peer:name() .. " (" .. peer:account_id() .. ")", false)
 	local startingTime = os.clock()
-	FOffCheaters:SendLocally(managers.localization:text("foffcheaters_checking_peer", {
+	FOffCheaters:LocalMessage("foffcheaters_checking_peer", {
 		USERNAME = peer:name(),
 		ACCOUNTID = peer:account_id()
-	}))
+	})
 	local isCheater = FOffCheaters:TestPeer(peer)
 
 	if isCheater then
 		local infractionData = FOffCheaters:CheckCheaterFlag(peer:account_id())
-		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected", {
+		FOffCheaters:LocalMessage("foffcheaters_detected", {
 			USERNAME = peer:name(),
 			NUMINFRACTIONS = #infractionData.infractions
-		}), true)
+		}, true)
 		for _,v in pairs(infractionData.infractions) do
-			FOffCheaters:SendLocally(managers.localization:text("foffcheaters_detected_infraction", {
+			FOffCheaters:LocalMessage("foffcheaters_detected_infraction", {
 				INFRACTION = v.description
-			}), true)
+			}, true)
 		end
 
 		if FOffCheaters.Settings.MarkCheaters then
 			managers.hud:mark_cheater(peer:id())
 		end
 	else
-		FOffCheaters:SendLocally(managers.localization:text("foffcheaters_cleared", {
+		FOffCheaters:LocalMessage("foffcheaters_cleared", {
 			USERNAME = peer:name()
-		}))
+		})
 	end
 
 	local elapsedTime = os.clock() - startingTime
-	FOffCheaters:SendLocally(managers.localization:text("foffcheaters_checktime", {
+	FOffCheaters:LocalMessage("foffcheaters_checktime", {
 		TIME = string.format("%.2f", elapsedTime)
-	}))
+	})
 	FOffCheaters:MarkChecked(peer:account_id())
 end
 
