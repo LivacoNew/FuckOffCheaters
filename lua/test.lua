@@ -12,6 +12,7 @@ function FOffCheaters:CheckPeer(peer)
 		USERNAME = peer:name(),
 		ACCOUNTID = peer:account_id()
 	})
+	FOffCheaters:LogInfo("Checking peer %s (%s)", peer:name(), peer:account_id())
 	local isCheater = FOffCheaters:TestPeer(peer)
 
 	if isCheater then
@@ -25,6 +26,7 @@ function FOffCheaters:CheckPeer(peer)
 				INFRACTION = v.description
 			}, true)
 		end
+		FOffCheaters:LogInfo("Peer %s was found with %s infractions.", peer:account_id(), #infractionData.infractions)
 
 		if FOffCheaters.Settings.MarkCheaters then
 			managers.hud:mark_cheater(peer:id())
@@ -33,9 +35,13 @@ function FOffCheaters:CheckPeer(peer)
 		FOffCheaters:LocalMessage("foffcheaters_cleared", {
 			USERNAME = peer:name()
 		})
+		FOffCheaters:LogInfo("Peer %s was cleared.", peer:account_id())
 	end
 
 	local elapsedTime = os.clock() - startingTime
+	if elapsedTime > 2.5 then
+		FOffCheaters:LogWarning("Peer %s took over 2.5 seconds to check: %.2s", peer:account_id(), elapsedTime)
+	end
 	FOffCheaters:LocalMessage("foffcheaters_checktime", {
 		TIME = string.format("%.2f", elapsedTime)
 	})
@@ -87,7 +93,7 @@ end
 
 -- Hooks to trigger checks
 if RequiredScript == "lib/managers/hudmanagerpd2" then
-	FOffCheaters:Logger("Setting up hud manager hooks")
+	FOffCheaters:LogDebug("Setting up hud manager hooks")
 	-- Credit to Blacklist for this method of getting the peer
 	Hooks:PostHook(HUDManager, "set_teammate_name", "foffcheater_peer_check", function(_, peerID, _)
 		DelayedCalls:Add("foffcheater-checkpeer-" .. peerID, 3, function()
@@ -99,7 +105,7 @@ if RequiredScript == "lib/managers/hudmanagerpd2" then
 	end)
 end
 if RequiredScript == "lib/network/base/networkpeer" then
-	FOffCheaters:Logger("Setting up network peer hooks")
+	FOffCheaters:LogDebug("Setting up network peer hooks")
 	Hooks:PostHook(BaseNetworkSession, "on_peer_sync_complete", "foffcheater_peer_check", function(_, peer, _)
 		FOffCheaters:TriggerChecks(peer)
 	end)

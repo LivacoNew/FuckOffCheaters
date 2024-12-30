@@ -19,9 +19,44 @@ function FOffCheaters:Require(path)
 end
 
 -- Logging
-function FOffCheaters:Logger(message, ...)
+-- Call it overengineered for a payday mod, but I like good log files
+FOffCheaters.LogLevels = {
+	ERROR = {
+		level = 1,
+		string = "Error"
+	},
+	WARNING = {
+		level = 2,
+		string = "Warning"
+	},
+	INFO = {
+		level = 3,
+		string = "Info"
+	},
+	DEBUG = {
+		level = 4,
+		string = "Debug"
+	}
+	-- No verbose :^)
+}
+FOffCheaters.LogLevel = FOffCheaters.LogLevels.DEBUG
+function FOffCheaters:Logger(level, message, ...)
+	if level.level > FOffCheaters.LogLevel.level then return end
 	-- ignore any deprecated warnings you get from your ide here, blt is still below lua 5.1 
-	log(string.format("[FOffCheaters] " .. message, unpack({...})))
+	log(string.format("[FOffCheaters: " .. level.string .. "] " .. message, unpack({...})))
+end
+-- Shortcuts
+function FOffCheaters:LogError(message, ...)
+	FOffCheaters:Logger(FOffCheaters.LogLevels.ERROR, message, unpack({...}))
+end
+function FOffCheaters:LogWarning(message, ...)
+	FOffCheaters:Logger(FOffCheaters.LogLevels.WARNING, message, unpack({...}))
+end
+function FOffCheaters:LogInfo(message, ...)
+	FOffCheaters:Logger(FOffCheaters.LogLevels.INFO, message, unpack({...}))
+end
+function FOffCheaters:LogDebug(message, ...)
+	FOffCheaters:Logger(FOffCheaters.LogLevels.DEBUG, message, unpack({...}))
 end
 
 -- Messages to the player
@@ -69,7 +104,7 @@ FOffCheaters:LoadSettings()
 -- Hook Routing
 if RequiredScript then
 	if not FOffCheaters.HookRoutes[RequiredScript] then return end
-	FOffCheaters:Logger("Routing hook %s -> %s", RequiredScript, FOffCheaters.HookRoutes[RequiredScript])
+	FOffCheaters:LogDebug("Routing hook %s -> %s", RequiredScript, FOffCheaters.HookRoutes[RequiredScript])
 	FOffCheaters:Require(FOffCheaters.HookRoutes[RequiredScript])
 end
 
