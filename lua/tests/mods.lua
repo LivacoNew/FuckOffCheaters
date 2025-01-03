@@ -234,3 +234,7 @@ FOffCheaters:RegisterModDetection("Cable Ties and Hostages", function(modID, mod
 	-- https://modworkshop.net/mod/31101
 	return BasicContains(modID, modName, "cableties-and-hostages") or BasicContains(modID, modName, "Cable Ties and Hostages")
 end)
+FOffCheaters:RegisterModDetection("InstaWin", function(modID, modName)
+	-- https://www.nexusmods.com/payday2/mods/192
+	return BasicContains(modID, modName, "instawin")
+end)
