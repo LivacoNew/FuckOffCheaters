@@ -98,6 +98,10 @@ FOffCheaters:RegisterModDetection("Old Spawnpoint Delays", function(modID, modNa
 	-- ["old spawnpoint delays"] = true,
 	return BasicContains(modID, modName, "old spawnpoint delays")
 end)
+FOffCheaters:RegisterModDetection("Shoot While Interacting", function(modID, modName)
+	-- had someone in a pub lobby try to hide this as menu backgrounds, lmao
+	return BasicContains(modID, modName, "lets you shoot while interacting")
+end)
 FOffCheaters:RegisterModDetection("DLC Unlocker", function(modID, modName)
 	-- ["unlock_only_heists"] = true,
 	-- ["unlock_only_characters"] = true,
@@ -237,4 +241,9 @@ end)
 FOffCheaters:RegisterModDetection("InstaWin", function(modID, modName)
 	-- https://www.nexusmods.com/payday2/mods/192
 	return BasicContains(modID, modName, "instawin")
+end)
+FOffCheaters:RegisterModDetection("No Enemy Melee", function(modID, modName)
+	-- https://modworkshop.net/mod/33440
+	-- had someone try to rename the mod as pocohud lul
+	return BasicContains(modID, modName, "nomelee")
 end)
